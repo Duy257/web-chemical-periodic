@@ -20,7 +20,6 @@ function addElement(data) {
   childElement.classList.add("element");
   childElement.style.backgroundColor = getColor(data.ctg);
 
-  const width = window.innerWidth;
   let isSelect = false;
 
   childElement.addEventListener("click", () => {
@@ -33,14 +32,12 @@ function addElement(data) {
     }
   });
 
-  if (!isSelect) {
-    childElement.addEventListener("mouseenter", () => {
-      handleHover(data);
-    });
-    childElement.addEventListener("mouseleave", () => {
-      handleMouseleaveElement();
-    });
-  }
+  childElement.addEventListener("mouseenter", () => {
+    handleHover(data);
+  });
+  childElement.addEventListener("mouseleave", () => {
+    handleMouseleaveElement();
+  });
 
   return childElement;
 }

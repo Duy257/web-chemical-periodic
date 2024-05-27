@@ -57,6 +57,7 @@ body {
 .cycle_element_list_element > div {
   height: 70px;
   width: 70px;
+  user-select: none;
 }
 
 .name_group {
