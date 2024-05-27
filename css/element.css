@@ -1,0 +1,40 @@
+.element {
+  height: 65px;
+  width: 65px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.element_name {
+  text-align: center;
+  font-size: 24px;
+}
+
+.element_num {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  text-align: center;
+}
+
+.element:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.element::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(165, 42, 42, 0);
+  transition: background-color 0.3s ease;
+}
+
+.element:hover::before {
+  background-color: rgba(39, 39, 39, 0.5);
+}

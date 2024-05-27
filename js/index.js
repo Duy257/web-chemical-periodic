@@ -1,0 +1,4 @@
+setupEventGroupElement();
+setupEventCycleElement();
+setupEventGroupCategory();
+renderElement();
