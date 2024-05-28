@@ -5,10 +5,10 @@ function setupEventCycleElement() {
     const items = elements.filter((item) => item.prd == i);
     const listElement = items.map((item) => document.getElementById(item.id));
     element.addEventListener("mouseenter", () =>
-      eventMouseenterCycle(element, i)
+      eventMouseenterCycle(element, listElement)
     );
     element.addEventListener("mouseleave", () =>
-      eventMouseLeaveCycle(element, i)
+      eventMouseLeaveCycle(element, listElement)
     );
   }
 }
