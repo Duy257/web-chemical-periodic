@@ -60,7 +60,6 @@ function handleHover(data) {
   detailInfo.style.backgroundColor = getColor(data.ctg);
 
   const wrapper = detailInfo.children[0];
-  console.log("🚀 ~ handleHover ~ wrapper:", wrapper);
   removeAllChildNodes(wrapper);
 
   const elementName = document.createElement("div");
@@ -76,10 +75,20 @@ function handleHover(data) {
     "Nhiệt độ sôi",
     `${data.bln} ℃`
   );
+  const electrons = generateInfoPropertiesTag(
+    "Số electron mỗi phân lớp",
+    `${data.elc}`
+  );
+  const electronConfiguration = generateInfoPropertiesTag(
+    "Cấu hình electron",
+    `${data.cnf}`
+  );
   wrapper.appendChild(elementName);
   wrapper.appendChild(yearElement);
   wrapper.appendChild(temperatureElement);
   wrapper.appendChild(meltingElement);
+  wrapper.appendChild(electrons);
+  wrapper.appendChild(electronConfiguration);
 }
 
 function generateInfoPropertiesTag(tit, data) {
@@ -88,7 +97,7 @@ function generateInfoPropertiesTag(tit, data) {
   const properties = document.createElement("div");
 
   title.textContent = tit;
-  properties.textContent = data;
+  properties.innerHTML = data;
 
   element.classList.add("detail_info_properties");
   element.appendChild(title);
