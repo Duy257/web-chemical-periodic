@@ -5,21 +5,19 @@ function setupEventGroupCategory() {
 
   for (const element of listElement) {
     if (!element.id) continue;
+    const items = elements.filter((item) => item.ctg === element.id);
+    const listChildren = items.map((item) => document.getElementById(item.id));
     element.addEventListener("mouseenter", () => {
-      const items = elements.filter((item) => item.ctg === element.id);
-      items.forEach((item) => {
-        const ele = document.getElementById(item.id);
-        ele.style.zIndex = 100;
+      listChildren.forEach((item) => {
+        item.style.zIndex = 100;
       });
       element.style.zIndex = 100;
       overlay.style.display = "block";
     });
     element.addEventListener("mouseleave", () => {
       overlay.style.display = "none";
-      const items = elements.filter((item) => item.ctg === element.id);
-      items.forEach((item) => {
-        const ele = document.getElementById(item.id);
-        ele.style.zIndex = 0;
+      listChildren.forEach((item) => {
+        item.style.zIndex = 0;
       });
       element.style.zIndex = 0;
     });
