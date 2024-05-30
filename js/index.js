@@ -6,6 +6,9 @@ const BoardController = {
     setupEventCycleElement();
     setupEventGroupCategory();
     renderElement();
+    if (window.screen.width < 769) {
+      element.style.transform = `rotate(${-90}deg)`;
+    }
   },
 };
 
