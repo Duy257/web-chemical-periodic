@@ -9,7 +9,7 @@
 
 .element_name {
   text-align: center;
-  font-size: 24px;
+  font-size: 1.3rem;
 }
 
 .element_num {
@@ -17,6 +17,7 @@
   top: 4px;
   left: 4px;
   text-align: center;
+  font-size: 0.88rem;
 }
 
 .element:hover {

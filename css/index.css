@@ -1,3 +1,12 @@
+html {
+  @media screen and (min-width: 1400px) {
+    font-size: 16px;
+  }
+  @media screen and (min-width: 2500px) {
+    font-size: 25px;
+  }
+}
+
 body {
   background-color: #000000;
   font-family: Arial, sans-serif;
@@ -11,11 +20,14 @@ body {
 
 .container {
   color: white;
-  margin: 30px;
   background-color: #000000;
   position: relative;
   user-select: none;
   width: 100%;
+  height: 100%;
+  @media screen and (min-width: 1400px) {
+    margin: 20px;
+  }
 }
 
 .title_cycle {
@@ -28,13 +40,18 @@ body {
   display: flex;
 }
 
+.header > div {
+  font-size: 0.88rem;
+}
+
 .header_title {
   width: 140px;
   height: 70px;
-  padding: 5px;
+  min-width: 140px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.88rem;
 }
 
 .group-number {
@@ -46,9 +63,11 @@ body {
 .group-number > div {
   height: 100%;
   width: 5.25%;
+  min-width: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.88rem;
 }
 
 .cycle_element {
@@ -56,6 +75,12 @@ body {
   height: 70px;
   display: flex;
   align-items: center;
+  @media screen and (min-width: 1800px) {
+    height: 90px;
+  }
+  @media screen and (min-width: 2500px) {
+    height: 120px;
+  }
 }
 
 .cycle_element_list_element {
@@ -68,11 +93,13 @@ body {
 .cycle_element_list_element > div {
   height: 100%;
   width: 5.25%;
+  min-width: 70px;
 }
 
 .name_group {
   height: 65px;
-  min-width: 140px;
+  min-width: 140px !important;
+  font-size: 0.88rem;
 }
 
 .group_special {
@@ -98,12 +125,26 @@ body {
   z-index: 10;
 }
 
-.category {
+.group_category {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  @media screen and (min-width: 2500px) {
+    width: 90%;
+  }
+}
+
+.group_category > div {
   padding: 0px 20px;
   height: 30px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  font-size: 1rem;
+  @media screen and (min-width: 2500px) {
+    height: 50px;
+  }
 }
 
 #group,

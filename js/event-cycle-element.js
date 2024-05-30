@@ -23,10 +23,10 @@ function eventMouseenterCycle(element, listElement) {
   overlay.style.display = "block";
 }
 function eventMouseLeaveCycle(element, listElement) {
-  overlay.style.display = "none";
   cycleTitle.style.zIndex = 0;
   listElement.forEach((item) => {
     item.style.zIndex = 0;
   });
   element.style.zIndex = 0;
+  overlay.style.display = "none";
 }
