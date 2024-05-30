@@ -6,7 +6,6 @@ const BoardController = {
     setupEventCycleElement();
     setupEventGroupCategory();
     renderElement();
-    self.activeBoard.style.transform = "scale(" + 1 + ")";
   },
 };
 
