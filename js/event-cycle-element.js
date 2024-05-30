@@ -25,6 +25,7 @@ function eventMouseenterCycle(element, listElement) {
 function eventMouseLeaveCycle(element, listElement) {
   overlay.style.display = "none";
   cycleTitle.style.zIndex = 0;
+
   listElement.forEach((item) => {
     item.style.zIndex = 0;
   });
