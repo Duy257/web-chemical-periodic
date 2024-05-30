@@ -6,10 +6,7 @@ const BoardController = {
     setupEventCycleElement();
     setupEventGroupCategory();
     renderElement();
-    // self.activeBoard.style.transform = "scale(" + 1 + ")";
-    // if (window.screen.width < 769) {
-    //   self.activeBoard.style.transform = "rotate(90deg)";
-    // }
+    self.activeBoard.style.transform = "scale(" + 1 + ")";
   },
 };
 
