@@ -1,8 +1,11 @@
+let totalElement = [];
+
 function renderElement() {
   for (const element of elements) {
     const ele = document.getElementById(element.id);
     if (!ele) continue;
     ele.appendChild(addElement(element));
+    totalElement.push(ele);
   }
 }
 
@@ -115,4 +118,15 @@ function removeAllChildNodes(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
+}
+
+function reductionOpacityElement() {
+  totalElement.forEach((e) => {
+    e.style.opacity = 0.2;
+  });
+}
+function resetOpacityElement() {
+  totalElement.forEach((e) => {
+    e.style.opacity = 1;
+  });
 }

@@ -1,3 +1,5 @@
+let totalElementCycle = [];
+
 function setupEventCycleElement() {
   for (let i = 1; i <= 7; i++) {
     const element = document.getElementById(`cy-${i}`);
@@ -10,24 +12,31 @@ function setupEventCycleElement() {
     element.addEventListener("mouseleave", () =>
       eventMouseLeaveCycle(element, listElement)
     );
+    totalElementCycle.push(element);
   }
 }
 
 function eventMouseenterCycle(element, listElement) {
-  overlay.style.display = "block";
-  cycleTitle.style.zIndex = 100;
-
+  reductionOpacity();
+  cycleTitle.style.opacity = 1;
   listElement.forEach((item) => {
-    item.style.zIndex = 100;
+    item.style.opacity = 1;
   });
-  element.style.zIndex = 100;
+  element.style.opacity = 1;
 }
-function eventMouseLeaveCycle(element, listElement) {
-  overlay.style.display = "none";
-  cycleTitle.style.zIndex = 0;
 
-  listElement.forEach((item) => {
-    item.style.zIndex = 0;
+function eventMouseLeaveCycle() {
+  resetOpacity();
+}
+
+function reductionOpacityCycleElement() {
+  totalElementCycle.forEach((element) => {
+    element.style.opacity = 0.2;
   });
-  element.style.zIndex = 0;
+}
+
+function resetOpacityCycleElement() {
+  totalElementCycle.forEach((element) => {
+    element.style.opacity = 1;
+  });
 }

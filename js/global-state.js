@@ -36,6 +36,5 @@ function getColor(ctg) {
   }
 }
 
-const overlay = document.getElementById("overlay");
 const groupTitle = document.getElementById("group");
 const cycleTitle = document.getElementById("cycle");

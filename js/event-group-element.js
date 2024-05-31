@@ -1,3 +1,5 @@
+let totalElementGroup = [];
+
 function setupEventGroupElement() {
   for (let i = 1; i <= 18; i++) {
     const element = document.getElementById(`gr-${i}`);
@@ -10,23 +12,30 @@ function setupEventGroupElement() {
     element.addEventListener("mouseleave", () =>
       eventMouseLeaveGroup(element, listElement)
     );
+    totalElementGroup.push(element);
   }
 }
 
 function eventMouseenterGroup(element, listElement) {
-  groupTitle.style.zIndex = 100;
+  reductionOpacity();
+  groupTitle.style.opacity = 1;
   listElement.forEach((item) => {
-    item.style.zIndex = 100;
+    item.style.opacity = 1;
   });
-  element.style.zIndex = 100;
-  overlay.style.display = "block";
+  element.style.opacity = 1;
 }
 
 function eventMouseLeaveGroup(element, listElement) {
-  overlay.style.display = "none";
-  groupTitle.style.zIndex = 0;
-  listElement.forEach((item) => {
-    item.style.zIndex = 0;
+  resetOpacity();
+}
+
+function reductionOpacityGroupElement() {
+  totalElementGroup.forEach((element) => {
+    element.style.opacity = 0.2;
   });
-  element.style.zIndex = 0;
+}
+function resetOpacityGroupElement() {
+  totalElementGroup.forEach((element) => {
+    element.style.opacity = 1;
+  });
 }
