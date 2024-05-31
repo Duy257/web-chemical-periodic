@@ -9,9 +9,7 @@ function setupEventCycleElement() {
     element.addEventListener("mouseenter", () =>
       eventMouseenterCycle(element, listElement)
     );
-    element.addEventListener("mouseleave", () =>
-      eventMouseLeaveCycle(element, listElement)
-    );
+    element.addEventListener("mouseleave", () => resetOpacity());
     totalElementCycle.push(element);
   }
 }
@@ -23,10 +21,6 @@ function eventMouseenterCycle(element, listElement) {
     item.style.opacity = 1;
   });
   element.style.opacity = 1;
-}
-
-function eventMouseLeaveCycle() {
-  resetOpacity();
 }
 
 function reductionOpacityCycleElement() {

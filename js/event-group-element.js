@@ -9,9 +9,7 @@ function setupEventGroupElement() {
     element.addEventListener("mouseenter", () =>
       eventMouseenterGroup(element, listElement)
     );
-    element.addEventListener("mouseleave", () =>
-      eventMouseLeaveGroup(element, listElement)
-    );
+    element.addEventListener("mouseleave", () => resetOpacity());
     totalElementGroup.push(element);
   }
 }
@@ -23,10 +21,6 @@ function eventMouseenterGroup(element, listElement) {
     item.style.opacity = 1;
   });
   element.style.opacity = 1;
-}
-
-function eventMouseLeaveGroup(element, listElement) {
-  resetOpacity();
 }
 
 function reductionOpacityGroupElement() {
