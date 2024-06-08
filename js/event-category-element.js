@@ -17,6 +17,9 @@ function setupEventGroupCategory() {
     element.addEventListener("mouseleave", async () => {
       resetOpacity();
     });
+    element.addEventListener("touchend", async () => {
+      resetOpacity();
+    });
   }
 }
 

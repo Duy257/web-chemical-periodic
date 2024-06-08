@@ -25,9 +25,6 @@ body {
   user-select: none;
   width: 100%;
   height: 100%;
-  @media screen and (min-width: 1400px) {
-    margin: 20px;
-  }
 }
 
 .title_cycle {
@@ -35,7 +32,7 @@ body {
 }
 
 .header {
-  height: 70px;
+  height: 62px;
   width: 100%;
   display: flex;
 }
@@ -62,38 +59,21 @@ body {
 
 .group-number > div {
   height: 100%;
-  width: 5.25%;
-  min-width: 70px;
+  width: 65px;
+  min-width: 65px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 0.88rem;
-}
-
-.cycle_element {
-  width: 100%;
-  height: 70px;
-  display: flex;
-  align-items: center;
+  @media screen and (min-width: 1400px) {
+    width: 70px;
+  }
   @media screen and (min-width: 1800px) {
-    height: 90px;
+    width: 90px;
   }
   @media screen and (min-width: 2500px) {
-    height: 120px;
+    width: 120px;
   }
-}
-
-.cycle_element_list_element {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.cycle_element_list_element > div {
-  height: 100%;
-  width: 5.25%;
-  min-width: 70px;
 }
 
 .name_group {
