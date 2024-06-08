@@ -8,7 +8,6 @@ function renderElement() {
     totalElement.push(ele);
 
     ele.addEventListener("touchstart", (e) => handleEventElement(e, data, ele));
-    ele.addEventListener("touchend", (e) => handleEventElement(e, data, ele));
     ele.addEventListener("mouseenter", (e) => handleEventElement(e, data, ele));
     ele.addEventListener("mouseleave", (e) => handleEventElement(e, data, ele));
   }
@@ -18,8 +17,6 @@ function handleEventElement(event, data, element) {
   if (event.type === "touchstart") {
     showElementDetail(data);
     element.style.opacity = 0.8;
-  } else if (event.type === "touchend") {
-    handleMouseleaveElement(element);
   } else if (event.type === "mouseenter") {
     showElementDetail(data);
     element.style.opacity = 0.8;

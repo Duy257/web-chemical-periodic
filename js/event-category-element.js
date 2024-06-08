@@ -10,9 +10,6 @@ function setupEventGroupCategory() {
     element.addEventListener("touchstart", (e) =>
       handleEventCategoryElement(e, listChildren, element)
     );
-    element.addEventListener("touchend", (e) =>
-      handleEventCategoryElement(e, listChildren, element)
-    );
     element.addEventListener("mouseenter", (e) =>
       handleEventCategoryElement(e, listChildren, element)
     );
@@ -25,8 +22,6 @@ function setupEventGroupCategory() {
 function handleEventCategoryElement(event, listChildren, element) {
   if (event.type === "touchstart") {
     eventHoverAndClick(listChildren, element);
-  } else if (event.type === "touchend") {
-    resetOpacity();
   } else if (event.type === "mouseenter") {
     eventHoverAndClick(listChildren, element);
   } else if (event.type === "mouseleave") {
