@@ -7,21 +7,22 @@ function renderElement() {
     ele.appendChild(addElement(element));
     totalElement.push(ele);
 
-    ele.addEventListener("touchstart", () => {
-      showElementDetail(element);
-    });
+    ele.addEventListener("touchstart", (e) => handleEventElement(e, element));
+    ele.addEventListener("touchcancel", (e) => handleEventElement(e, element));
+    ele.addEventListener("mouseenter", (e) => handleEventElement(e, element));
+    ele.addEventListener("mouseleave", (e) => handleEventElement(e, element));
+  }
+}
 
-    ele.addEventListener("touchend", () => {
-      handleMouseleaveElement();
-    });
-
-    ele.addEventListener("mouseenter", () => {
-      showElementDetail(element);
-    });
-
-    ele.addEventListener("mouseleave", () => {
-      handleMouseleaveElement();
-    });
+function handleEventElement(event, element) {
+  if (event.type === "touchstart") {
+    showElementDetail(element);
+  } else if (event.type === "touchcancel") {
+    handleMouseleaveElement();
+  } else if (event.type === "mouseenter") {
+    showElementDetail(element);
+  } else if (event.type === "mouseleave") {
+    handleMouseleaveElement();
   }
 }
 
