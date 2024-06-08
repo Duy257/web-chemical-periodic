@@ -1,28 +1,30 @@
 let totalElement = [];
 
 function renderElement() {
-  for (const element of elements) {
-    const ele = document.getElementById(element.id);
+  for (const data of elements) {
+    const ele = document.getElementById(data.id);
     if (!ele) continue;
-    ele.appendChild(addElement(element));
+    ele.appendChild(addElement(data));
     totalElement.push(ele);
 
-    ele.addEventListener("touchstart", (e) => handleEventElement(e, element));
-    ele.addEventListener("touchcancel", (e) => handleEventElement(e, element));
-    ele.addEventListener("mouseenter", (e) => handleEventElement(e, element));
-    ele.addEventListener("mouseleave", (e) => handleEventElement(e, element));
+    ele.addEventListener("touchstart", (e) => handleEventElement(e, data, ele));
+    ele.addEventListener("touchend", (e) => handleEventElement(e, data, ele));
+    ele.addEventListener("mouseenter", (e) => handleEventElement(e, data, ele));
+    ele.addEventListener("mouseleave", (e) => handleEventElement(e, data, ele));
   }
 }
 
-function handleEventElement(event, element) {
+function handleEventElement(event, data, element) {
   if (event.type === "touchstart") {
-    showElementDetail(element);
-  } else if (event.type === "touchcancel") {
-    handleMouseleaveElement();
+    showElementDetail(data);
+    element.style.opacity = 0.8;
+  } else if (event.type === "touchend") {
+    handleMouseleaveElement(element);
   } else if (event.type === "mouseenter") {
-    showElementDetail(element);
+    showElementDetail(data);
+    element.style.opacity = 0.8;
   } else if (event.type === "mouseleave") {
-    handleMouseleaveElement();
+    handleMouseleaveElement(element);
   }
 }
 
@@ -43,10 +45,11 @@ function addElement(data) {
   return childElement;
 }
 
-function handleMouseleaveElement() {
+function handleMouseleaveElement(element) {
   const detail = document.getElementById("detail");
   if (!detail) return;
   detail.style.display = "none";
+  element.style.opacity = 1;
 }
 
 function reductionOpacityElement() {

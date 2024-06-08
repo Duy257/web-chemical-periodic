@@ -7,20 +7,39 @@ function setupEventGroupCategory() {
     if (!element.id) continue;
     const items = elements.filter((item) => item.ctg === element.id);
     const listChildren = items.map((item) => document.getElementById(item.id));
-    element.addEventListener("mouseenter", async () => {
-      reductionOpacity();
-      listChildren.forEach((item) => {
-        item.style.opacity = 1;
-      });
-      element.style.opacity = 1;
-    });
-    element.addEventListener("mouseleave", async () => {
-      resetOpacity();
-    });
-    element.addEventListener("touchend", async () => {
-      resetOpacity();
-    });
+    element.addEventListener("touchstart", (e) =>
+      handleEventCategoryElement(e, listChildren, element)
+    );
+    element.addEventListener("touchend", (e) =>
+      handleEventCategoryElement(e, listChildren, element)
+    );
+    element.addEventListener("mouseenter", (e) =>
+      handleEventCategoryElement(e, listChildren, element)
+    );
+    element.addEventListener("mouseleave", (e) =>
+      handleEventCategoryElement(e, listChildren, element)
+    );
   }
+}
+
+function handleEventCategoryElement(event, listChildren, element) {
+  if (event.type === "touchstart") {
+    eventHoverAndClick(listChildren, element);
+  } else if (event.type === "touchend") {
+    resetOpacity();
+  } else if (event.type === "mouseenter") {
+    eventHoverAndClick(listChildren, element);
+  } else if (event.type === "mouseleave") {
+    resetOpacity();
+  }
+}
+
+function eventHoverAndClick(listChildren, element) {
+  reductionOpacity();
+  listChildren.forEach((item) => {
+    item.style.opacity = 1;
+  });
+  element.style.opacity = 1;
 }
 
 async function reductionOpacityCategory() {
