@@ -3,6 +3,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
   setupEventCycleElement();
   setupEventGroupCategory();
   renderElement();
+
+  const body = document.getElementById("body");
+  const scaleRatioWidth = window.innerWidth / body.offsetWidth;
+  const scaleRatioHeight = window.innerHeight / body.offsetHeight;
+  if (scaleRatioWidth < 1) {
+    body.style.transform = "scale(" + scaleRatioWidth + ")";
+    body.style.transformOrigin = "10% 0%";
+    body.style.height = "100vh";
+  }
+  if (scaleRatioHeight < 1) {
+    body.style.transform = "scale(" + scaleRatioHeight + ")";
+    body.style.transformOrigin = "50% 0%";
+    body.style.height = "100vh";
+  }
 });
 
 function reductionOpacity() {
