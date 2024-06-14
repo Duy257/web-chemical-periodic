@@ -9,14 +9,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const scaleRatioHeight = window.innerHeight / body.offsetHeight;
   if (scaleRatioWidth < 1) {
     body.style.transform = "scale(" + scaleRatioWidth + ")";
-    body.style.transformOrigin = "10% 0%";
-    body.style.height = "100vh";
   }
   if (scaleRatioHeight < 1) {
     body.style.transform = "scale(" + scaleRatioHeight + ")";
-    body.style.transformOrigin = "50% 0%";
-    body.style.height = "100vh";
   }
+  if (window.innerWidth > 1000) {
+    body.style.transformOrigin = "50% 0%";
+  } else if (window.innerWidth > 700) {
+    body.style.transformOrigin = "20% 0%";
+  } else body.style.transformOrigin = "0% 0%";
+  body.style.height = "100vh";
 });
 
 function reductionOpacity() {
